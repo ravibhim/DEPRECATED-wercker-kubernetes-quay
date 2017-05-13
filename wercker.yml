@@ -27,7 +27,7 @@ deploy:
     steps:
     - script:
       name: copy the source from the pipeline
-      script: cp -r $WERCKER_OUTPUT_DIR/* /go/src/app/
+      script: cp -r $WERCKER_SOURCE_DIR/* /go/src/app/
     # use the scratch step to build a container from scratch based on the files present
     - script:
       name: ls
