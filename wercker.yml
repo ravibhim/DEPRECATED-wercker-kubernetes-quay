@@ -26,11 +26,11 @@ deploy:
     box: google/golang
     steps:
     # use the scratch step to build a container from scratch based on the files present
-    - internal/docker-scratch-push:
+    - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
         cmd: ./app
-        tag: $WERCKER_GIT_COMMIT
+        tag: "latest"
         ports: "5000"
         repository: ravibhim/golang-example
         registry: https://registry.hub.docker.com
