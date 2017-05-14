@@ -22,7 +22,7 @@ build:
         name: copy binary
         code: cp app cities-service.json cities-controller.json "$WERCKER_OUTPUT_DIR"
 
-# Packages and pushes the docker image to Docker Hub
+# Packages and pushes the docker image to Docker Hub.
 deploy:
     box: google/golang
     steps:
