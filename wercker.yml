@@ -48,6 +48,7 @@ deploy:
 
 # Run this to create the rc and service
 initialize:
+  steps:
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
