@@ -30,11 +30,11 @@ deploy:
       code: env
     - script:
       name: copy the source from the pipeline
-      script: mv app cities-service.json cities-controller.json /go/src/app/
+      code: mv app cities-service.json cities-controller.json /go/src/app/
     # use the scratch step to build a container from scratch based on the files present
     - script:
       name: ls
-      script: ls /go/src/app
+      code: ls /go/src/app
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
