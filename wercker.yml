@@ -1,7 +1,7 @@
-build:
-    box: google/golang
-    steps:
+box: google/golang
 
+build:
+    steps:
     # Test the project
     - script:
         name: go test
@@ -22,9 +22,8 @@ build:
         name: copy binary
         code: cp app cities-service.json cities-controller.json "$WERCKER_OUTPUT_DIR"
 
-# Packages and pushes the docker image to Docker Hub.
+# Packages and pushes the docker image to Docker Hub
 deploy:
-    box: google/golang
     steps:
     - script:
       name: print env
