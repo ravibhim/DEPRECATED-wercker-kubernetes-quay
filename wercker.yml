@@ -45,7 +45,7 @@ deploy:
         repository: ravibhim/golang-example
         registry: https://registry.hub.docker.com
 
-    initialize:
+initialize:
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME

@@ -35,8 +35,8 @@ deploy:
         repository: quay.io/wercker/wercker-kubernetes-quay
         registry: https://quay.io
 
-    # Run this to create the rc and service
-    initialize:
+# Run this to create the rc and service
+initialize:
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
@@ -52,7 +52,7 @@ deploy:
         command: create -f cities-service.json
 
     # Update the replica controller to $WERCKER_GIT_COMMIT
-    rolling-update:
+rolling-update:
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
