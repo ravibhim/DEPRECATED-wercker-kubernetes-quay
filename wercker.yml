@@ -44,19 +44,15 @@ deploy:
         ports: "5000"
         repository: ravibhim/golang-example
         registry: https://registry.hub.docker.com
-
-
-# Run this to create the rc and service
-initialize:
-  steps:
     - kubectl:
+        cwd: /go/src/app
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
         command: create -f cities-controller.json
-
     - kubectl:
+        cwd: /go/src/app
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
         password: $KUBERNETES_PASSWORD
