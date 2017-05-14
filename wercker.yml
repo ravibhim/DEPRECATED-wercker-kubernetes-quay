@@ -22,6 +22,7 @@ build:
         name: copy binary
         code: cp app cities-service.json cities-controller.json "$WERCKER_OUTPUT_DIR"
 
+# Packages and pushes the docker image to Docker Hub.
 deploy:
     box: google/golang
     steps:
@@ -39,8 +40,22 @@ deploy:
         username: $USERNAME
         password: $PASSWORD
         cmd: ./app
-        tag: "latest"
+        tag: $WERCKER_GIT_COMMIT
         ports: "5000"
         repository: ravibhim/golang-example
         registry: https://registry.hub.docker.com
 
+    initialize:
+    - kubectl:
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: create -f cities-controller.json
+
+    - kubectl:
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: create -f cities-service.json
