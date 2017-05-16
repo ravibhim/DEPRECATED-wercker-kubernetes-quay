@@ -52,17 +52,17 @@ deploy:
     #    command: rolling-update cities
     #    image: ravibhim/golang-example:${WERCKER_GIT_COMMIT}
 
-    - kubectl:
-        cwd: /go/src/app
-        server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
-        insecure-skip-tls-verify: true
-        command: create -f cities-deployment.json --record
-    - kubectl:
-        cwd: /go/src/app
-        server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
-        insecure-skip-tls-verify: true
-        command: create -f cities-service.json --record
+    #- kubectl:
+    #    cwd: /go/src/app
+    #    server: $KUBERNETES_MASTER
+    #    username: $KUBERNETES_USERNAME
+    #    password: $KUBERNETES_PASSWORD
+    #    insecure-skip-tls-verify: true
+    #    command: create -f cities-deployment.json --record
+    #- kubectl:
+    #    cwd: /go/src/app
+    #    server: $KUBERNETES_MASTER
+    #    username: $KUBERNETES_USERNAME
+    #    password: $KUBERNETES_PASSWORD
+    #    insecure-skip-tls-verify: true
+    #    command: create -f cities-service.json --record
