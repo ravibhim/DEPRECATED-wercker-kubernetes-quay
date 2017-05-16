@@ -2,23 +2,25 @@
 
 cat > cities-deployment.json <<EOF
 {
-  "apiVersion": "extensions/v1beta1",
+  "apiVersion": "apps/v1beta1",
   "kind": "Deployment",
   "metadata": {
-    "name": "cities"
+    "name": "${MS_NAME}"
   },
   "spec": {
     "replicas": 3,
-    "selector": {
-      "matchLabels": {
-        "name": "cities",
-        "deployment": "${WERCKER_GIT_COMMIT}"
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxSurge": 1,
+        "maxUnavailable": 1
       }
     },
+    "minReadySeconds": 5,
     "template": {
       "metadata": {
         "labels": {
-          "name": "cities",
+          "name": "${MS_NAME}",
           "deployment": "${WERCKER_GIT_COMMIT}"
         }
       },
@@ -27,7 +29,7 @@ cat > cities-deployment.json <<EOF
           {
             "imagePullPolicy": "Always",
             "image": "ravibhim/golang-example:${WERCKER_GIT_COMMIT}",
-            "name": "cities",
+            "name": "${MS_NAME}",
             "ports": [
               {
                 "name": "http-server",
