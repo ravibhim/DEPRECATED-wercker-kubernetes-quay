@@ -5,7 +5,7 @@ cat > cities-deployment.json <<EOF
   "apiVersion": "apps/v1beta1",
   "kind": "Deployment",
   "metadata": {
-    "name": "cities",
+    "name": "cities"
   },
   "spec": {
     "replicas": 3,
