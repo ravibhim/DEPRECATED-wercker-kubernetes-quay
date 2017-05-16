@@ -17,6 +17,11 @@ build:
         name: create cities-deployment.json
         code: ./create_cities-deployment.json.sh
 
+    # Create cities-service.json for initialization
+    - script:
+        name: create cities-service.json
+        code: ./create_cities-service.json.sh
+
     # Copy binary to location that gets passed along to deploy
     - script:
         name: copy binary

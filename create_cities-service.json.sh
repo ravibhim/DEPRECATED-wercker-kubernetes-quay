@@ -1,10 +1,13 @@
+#!/bin/bash
+
+cat > cities-service.json << EOF
 {
    "apiVersion": "v1",
    "kind": "Service",
    "metadata": {
-      "name": "cities",
+      "name": "${MS_NAME}",
       "labels": {
-         "name": "cities"
+         "name": "${MS_NAME}"
       }
    },
    "spec":{
@@ -17,7 +20,8 @@
          }
       ],
       "selector":{
-         "name":"cities"
+         "name":"${MS_NAME}"
       }
    }
 }
+EOF
