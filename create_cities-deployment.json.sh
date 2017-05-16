@@ -9,6 +9,12 @@ cat > cities-deployment.json <<EOF
   },
   "spec": {
     "replicas": 3,
+    "selector": {
+      "matchLabels": {
+        "name": "cities",
+        "deployment": "${WERCKER_GIT_COMMIT}"
+      }
+    },
     "template": {
       "metadata": {
         "labels": {
