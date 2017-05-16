@@ -2,7 +2,7 @@
 
 cat > cities-deployment.json <<EOF
 {
-  "apiVersion": "apps/v1beta1",
+  "apiVersion": "extensions/v1beta1",
   "kind": "Deployment",
   "metadata": {
     "name": "cities"
