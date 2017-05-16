@@ -43,6 +43,7 @@ deploy:
         ports: "5000"
         repository: ravibhim/golang-example
         registry: https://registry.hub.docker.com
+
     # rolling update
     #- kubectl:
     #    server: $KUBERNETES_MASTER
