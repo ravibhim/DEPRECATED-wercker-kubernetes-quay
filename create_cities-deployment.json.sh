@@ -20,7 +20,7 @@ cat > cities-deployment.json <<EOF
     "template": {
       "metadata": {
         "labels": {
-          "name": "${MS_NAME}",
+          "name": "${MS_NAME}"
         }
       },
       "spec": {
