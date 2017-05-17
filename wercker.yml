@@ -50,24 +50,24 @@ deploy:
         registry: https://registry.hub.docker.com
 
     # rolling update
+    #- kubectl:
+    #    server: $KUBERNETES_MASTER
+    #    username: $KUBERNETES_USERNAME
+    #    password: $KUBERNETES_PASSWORD
+    #    insecure-skip-tls-verify: true
+    #    command: set image deployment $MS_NAME $MS_NAME=ravibhim/golang-example:${WERCKER_GIT_COMMIT} --record
+
     - kubectl:
+        cwd: /go/src/app
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
-        command: set image deployment $MS_NAME $MS_NAME=ravibhim/golang-example:${WERCKER_GIT_COMMIT} --record
-
-    #- kubectl:
-    #    cwd: /go/src/app
-    #    server: $KUBERNETES_MASTER
-    #    username: $KUBERNETES_USERNAME
-    #    password: $KUBERNETES_PASSWORD
-    #    insecure-skip-tls-verify: true
-    #    command: create -f $MS_NAME-deployment.json --record
-    #- kubectl:
-    #    cwd: /go/src/app
-    #    server: $KUBERNETES_MASTER
-    #    username: $KUBERNETES_USERNAME
-    #    password: $KUBERNETES_PASSWORD
-    #    insecure-skip-tls-verify: true
-    #    command: create -f $MS_NAME-service.json --record
+        command: create -f $MS_NAME-deployment.json --record
+    - kubectl:
+        cwd: /go/src/app
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: create -f $MS_NAME-service.json --record

@@ -21,7 +21,6 @@ cat > cities-deployment.json <<EOF
       "metadata": {
         "labels": {
           "name": "${MS_NAME}",
-          "deployment": "${WERCKER_GIT_COMMIT}"
         }
       },
       "spec": {
