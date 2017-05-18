@@ -40,6 +40,7 @@ func CityHandler(res http.ResponseWriter, req *http.Request) {
 			"Mysore",
 			"Delhi",
 			"Hong Kong",
+			"Nairobi",
 		},
 	}
 	data, _ := json.MarshalIndent(citiesResponse, "", "  ")
