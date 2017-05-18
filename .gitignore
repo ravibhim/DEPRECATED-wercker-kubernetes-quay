@@ -1,2 +1,4 @@
 .wercker/
 cities-deployment.json
+wercker.yml.init
+wercker.yml.roll

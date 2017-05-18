@@ -8,7 +8,7 @@ cat > cities-deployment.json <<EOF
     "name": "${MS_NAME}"
   },
   "spec": {
-    "replicas": 3,
+    "replicas": 2,
     "strategy": {
       "type": "RollingUpdate",
       "rollingUpdate": {
